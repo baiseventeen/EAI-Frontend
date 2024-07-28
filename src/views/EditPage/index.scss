@@ -1,0 +1,22 @@
+.my-work {
+  padding: 20px 0 20px 12px;
+  box-sizing: border-box;
+  height: calc(100vh - 40px);
+  display: flex;
+  gap: 20px;
+
+  .my-work-slider {
+    width: 25%;
+    height: 100% ;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .my-work-input {
+    width: 100%;
+    flex: 1;
+    max-width: 100%;
+  }
+}

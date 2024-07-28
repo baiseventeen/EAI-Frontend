@@ -1,0 +1,50 @@
+.homework-details {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  //background-color: #fff;
+
+  .homework-details-title {
+    font-weight: 600;
+    font-size: 20px;
+    margin: 10px 20px;
+    font-family: v-sans !important;
+  }
+
+  .homework-details-info {
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: solid 1px #d0d0d0;
+    display: flex;
+    gap: 20px;
+    background-color: #fff;
+    line-height: 30px;
+
+    .homework-details-text {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .item {
+    }
+  }
+
+  .homework-remark {
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: solid 1px #d0d0d0;
+    background-color: #fff;
+    line-height: 30px;
+    overflow: hidden;
+  }
+
+
+}

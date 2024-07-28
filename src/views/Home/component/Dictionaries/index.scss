@@ -1,0 +1,19 @@
+.dictionaries {
+  height: 40%; // 原值40%
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+
+  .box-dialog {
+    border: solid 1px #efefef;
+    border-radius: 5px;
+    margin-top: 10px;
+    height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 15px;
+    box-sizing: border-box;
+
+  }
+}

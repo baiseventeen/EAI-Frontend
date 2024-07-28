@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: v-sans !important;
+}
+
+body, html, #app {
+    height: 100%;
+}
+
+:root {
+    --main-color: #1677ff;
+    --boder-color: #d5d5d5;
+}

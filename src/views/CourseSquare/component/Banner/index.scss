@@ -1,0 +1,20 @@
+.carousel-banner {
+  width: 1200px;
+  margin: 0 auto;
+  height: 300px;
+  //border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+
+  .carousel-items {
+    height: 100%;
+    //width: 700px;
+
+    & .carousel-image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+//}

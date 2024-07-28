@@ -1,0 +1,27 @@
+.language-icon {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  .text-icons {
+    position: absolute;
+    font-size: 10px;
+
+    z-index: 999;
+    background-color: #ffffff;
+    line-height: 10px;
+
+    &.z {
+      right: -3px;
+      bottom: 2px;
+    }
+
+    &.y {
+      left: -3px;
+      top: 0;
+    }
+  }
+
+  .text-icons {
+  }
+}

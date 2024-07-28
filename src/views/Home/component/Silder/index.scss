@@ -1,0 +1,95 @@
+.slider-content {
+  width: 20%;
+  margin-left: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 10px;
+  display: flex;
+  flex-direction: column;
+  transition: all .3s;
+  padding: 20px 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  background-color: #ffffff;
+
+  &.shrink {
+    width: 80px;
+    align-items: center;
+
+    & .slider-icons {
+      cursor: pointer;
+      margin-left: 0;
+    }
+
+    & .slider-item-box {
+      padding: 0;
+      margin-top: 30px;
+    }
+  }
+
+  & .slider-icons {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .slider-item-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 0 15px 15px 15px;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+
+  .slider-tag {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .slider-tag-item {
+      background-color: #add94f;
+      padding: 8px 0;
+      display: flex;
+      justify-content: center;
+      font-size: 14px;
+      border-radius: 1000px;
+      cursor: pointer;
+    }
+  }
+
+  .capacity-item {
+    width: 95%;
+    height: 100%;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+  }
+
+  .remark {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow-y: auto; /* 添加垂直滚动 */
+    white-space: pre-wrap; /* 保留换行和空格，允许自动换行 */
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+}
+
+
+.slider-item {
+  font-size: 14px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+  border-radius: 100px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 10px;
+}
+
+.edit-text {
+  margin-left: 10px;
+}
+

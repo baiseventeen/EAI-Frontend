@@ -1,0 +1,44 @@
+.login-style {
+  .box-vessel {
+    padding: 20px 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    flex: 1;
+
+    .code-button-active {
+      color: #fff;
+      background-color: var(--main-color);
+
+      &:hover {
+        color: #fff;
+        //background-color: rgba(var(--main-color), 0.9);
+        background-color: rgba(#1677ff, 0.5);
+      }
+    }
+
+    .login-button{
+      width: 100%;
+      color: #fff;
+      background-color: var(--main-color);
+    }
+
+    .forget {
+      font-size: 14px;
+      text-align: right;
+      margin-bottom: 20px;
+      cursor: pointer;
+      color: var(--main-color)
+    }
+
+
+    .sign {
+      text-align: center;
+      font-size: 12px;
+      color: #8e8e8e;
+      cursor: pointer;
+    }
+  }
+}
