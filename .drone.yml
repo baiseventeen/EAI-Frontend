@@ -21,7 +21,7 @@ steps:
       password:
         from_secret: docker-password
       registry: registry.cn-hangzhou.aliyuncs.com
-      repo: registry.cn-hangzhou.aliyuncs.com/english-ai/eai-frontend
+      repo: registry.cn-hangzhou.aliyuncs.com/english_ai/eai_frontend
 
   # 第三部，部署，通过ssh进行部署
   - name: deploy-with-ssh
@@ -33,7 +33,7 @@ steps:
       DOCKER_PASSWORD:
         from_secret: docker-password
       DOCKER_REGISTRY: registry.cn-hangzhou.aliyuncs.com
-      IMAGE_NAME: english-ai/eai-frontend
+      IMAGE_NAME: english_ai/eai_frontend
       IMAGE_TAG: latest
     settings:
       host: 8.130.126.86
