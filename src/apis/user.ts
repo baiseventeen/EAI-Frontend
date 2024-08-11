@@ -9,6 +9,7 @@ const userApis = {
             ...userForm
         })
     },
+
     findUserById: (id:number) => {
         return axiosInstance.get(`${USER_PREFIX}`, {
             params: {

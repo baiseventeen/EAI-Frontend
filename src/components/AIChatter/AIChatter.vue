@@ -41,7 +41,7 @@
           <!--名字-->
           <div style="margin-bottom: 2px">{{ index % 2 === 0 ? 'You' : data.model }}</div>
           <!--内容-->
-          <div :class="$style.content">{{ item.content }}</div>
+          <div :class="$style.content">{{ item?.content }}</div>
         </div>
       </div>
       <div ref="messagesEndRef" />

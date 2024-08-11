@@ -173,12 +173,28 @@ const columns = ref<IAssignmentTableColumn[]>([
 // 用于展示课程所含的作业
 let homeworkList = ref<IAssignmentTableItem[]>([]);
 
+/*
+  用于显示教师姓名
+   */
+const processCourses = () => {
+  for(let i = 0; i < dataForm.teacherIds.length; i++){
+    apis.findUserById(dataForm.teacherIds[i])
+        .then((res:any) => {
+          dataForm.teacherIds[i] = res.data.data.records[0].name
+        })
+        .catch((err:any) => {
+          console.log("错误信息",err)
+        })
+  }
+}
+
 const getCourse = () => {
   // 获取课程信息
   apis.getCourseByCourseId(courseId)
       .then((res: any) => {
         let data = res.data.data.records[0]
         Object.assign(dataForm, {...data})
+        processCourses()
         getNewCourseInfo(dataForm)
       })
       .catch((err: any) => {
@@ -206,10 +222,11 @@ const getHomeworkList = () => {
         let data = res.data.data.records
         homeworkList.value = convertHomeworkList(data)
         // TODO
-        for(let i = 0; i < data.length; i++){
-          apis.findUserById(data[i].teacherId)
+        console.log(homeworkList.value)
+        for(let i = 0; i < homeworkList.value.length; i++){
+          apis.findUserById(+homeworkList.value[i].publisher)
               .then((res: any) => {
-                data[i].teacherId = res.data.data.records[0].name
+                homeworkList.value[i].publisher = res.data.data.records[0].name
               })
         }
       })
@@ -274,18 +291,23 @@ const enroll = () => {
 const isShowEdit = () => {
   apis.getCourseByTeacherId(store.user.id)
       .then((res: any) => {
-        let data = res.data.data.records
-        for(let i = 0 ; i < data.length; i++){
-          if(data[i].courseId == courseId){
-            showEdit.value = true;
-            break;
-          }
-        }
+        let total = res.data.data.total
+        apis.getCourseByTeacherId(store.user.id, 1, total)
+            .then((res: any) => {
+              let data = res.data.data.records
+              for(let i = 0 ; i < data.length; i++){
+                if(data[i].courseId == courseId){
+                  showEdit.value = true;
+                  break;
+                }
+              }
+            })
+            .catch((err: any) => {
+              console.error(err);
+            })
+            .finally(() => {});
       })
-      .catch((err: any) => {
-        console.error(err);
-      })
-      .finally(() => {});
+
 }
 
 /*
@@ -300,7 +322,8 @@ const convertHomeworkList = (data:IAssignment[]) => {
       startDate: formatDate(data[i].startTime),
       endDate: formatDate(data[i].endTime),
       assignmentId: data[i].assignmentId,
-      descriptionFile: data[i].descriptionFile != null ? data[i].descriptionFile: null
+      descriptionFile: data[i].descriptionFile != null ? data[i].descriptionFile: null,
+      teacherId: data[i].teacherId.toString(),
     }
     newHomeworkList.push(item)
   }

@@ -23,7 +23,7 @@
         </el-table-column>
         <el-table-column :label="role == 'teachers'? '编辑':'写作'">
           <template #default="scope">
-            <el-button color="#888" circle @click="handleFunctionButton(scope.row.assignmentId)" :disabled="props.disabled"/>
+            <el-button color="#888" circle @click="handleFunctionButton(scope.row.assignmentId)" :disabled="props.disabled || isDisabled(scope.row.teacherId)"/>
           </template>
         </el-table-column>
       </el-table>
@@ -76,6 +76,7 @@ import {defineProps, inject, onMounted, reactive, ref} from 'vue';
   import {useFormatDate} from "@/hooks/useFormatDate";
   import assignment from "@/apis/assignment";
 import ViewsWordEditor from "@/components/ViewsWordEditor/ViewsWordEditor.vue";
+import {useStore} from "@/store";
 
   const props = defineProps<{
     tableData: IAssignmentTableItem[],
@@ -87,6 +88,7 @@ import ViewsWordEditor from "@/components/ViewsWordEditor/ViewsWordEditor.vue";
   }>()
 
   const apis = useApis()
+  const store = useStore()
   const doRefresh:Function = inject("reload")
   const {formatDate} = useFormatDate()
 
@@ -250,6 +252,10 @@ const openEditor = (url: string, title: string) => {
           })
     }
     doRefresh();
+  }
+
+  const isDisabled = (teacherId:string) => {
+    return props.role == 'teachers' && +teacherId != store.user.id;
   }
 
   onMounted(() => {

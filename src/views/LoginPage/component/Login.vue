@@ -57,13 +57,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, reactive } from 'vue';
+  import { ref, reactive,defineProps } from 'vue';
   import { useStore } from '@/store';
   import useApis from '@/apis';
   import router from "@/router";
   import { useCountdown } from '@/hooks/useCountdown';
   import "./index.scss"
   import { ElMessage } from 'element-plus';
+
 
   interface LoginProps {
     // 是否是手机号登录

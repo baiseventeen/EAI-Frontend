@@ -104,7 +104,8 @@
   let courseInfo = reactive<CourseVO>({} as CourseVO)
 
   let query = reactive<AssignmentQuery>({
-    courseId: +route.query.courseId
+    courseId: +route.query.courseId,
+    teacherId: store.user.id
   } as AssignmentQuery)
 
   const fetchCourseInfo = () => {

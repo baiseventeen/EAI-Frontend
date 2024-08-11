@@ -57,6 +57,7 @@
           const data = _res.data.data
           Object.assign(dataForm, {
             dialogueId: data?.dialogueId,
+            //TODO:AI对话拿到的字符串
             messages: data?.messages.content,
             engagement: dataForm.engagement
           })

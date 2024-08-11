@@ -86,11 +86,16 @@ async function getEngagement(){
         console.log(_res)
         //还未参加作业，则先加入作业
         if(_res.data.data == null){
-          apis.engageAssignment(assignmentId);
-          ElMessage({
-            message: '参加作业成功',
-            type: 'success',
-          })
+          apis.engageAssignment(assignmentId)
+              .then((res:any) => {
+                ElMessage({
+                  message: '参加作业成功',
+                  type: 'success',
+                })
+              })
+              .catch((_err:any) => {
+                console.log("参加做业的错误",_err)
+              })
         }
       }).catch((_err:any) => {
         console.log(_err)

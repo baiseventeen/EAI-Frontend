@@ -75,8 +75,8 @@ export interface AssignmentVO {
 
 export interface IAssignmentTableColumn {
     title: string;
-    dataIndex: 'desc' | 'publisher' | 'startDate' | 'endDate' | 'details' | 'writing' | 'assignmentId';
-    key: 'desc' | 'publisher' | 'startDate' | 'endDate' | 'details' | 'writing' | 'assignmentId';
+    dataIndex: 'desc' | 'publisher' | 'startDate' | 'endDate' | 'details' | 'writing' | 'assignmentId' | 'teacherId';
+    key: 'desc' | 'publisher' | 'startDate' | 'endDate' | 'details' | 'writing' | 'assignmentId' | 'teacherId';
 }
 
 export interface IAssignmentTableItem {
@@ -85,7 +85,8 @@ export interface IAssignmentTableItem {
     startDate: string;
     endDate: string;
     assignmentId: number;
-    descriptionFile?: string
+    descriptionFile?: string;
+    teacherId: string
 }
 
 

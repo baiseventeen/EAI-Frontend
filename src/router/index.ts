@@ -62,6 +62,11 @@ const router = createRouter({
           component: () => import('../views/EditPage/EditPage.vue')
         },
         {
+          path: 'assignment/:assignmentId/correct',
+          name: 'correct',
+          component: () => import('../views/CorrectPage/CorrectPage.vue')
+        },
+        {
           path: 'myCorrect/course',
           name: 'myCorrectWithCourse',
           component: () => import("@/views/CorrectPage/CoursePage.vue")

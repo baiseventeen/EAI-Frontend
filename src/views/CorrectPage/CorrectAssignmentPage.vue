@@ -40,7 +40,7 @@
       <el-table-column prop="remark" label="评价"/>
       <el-table-column label="操作">
         <template #default="scope">
-          <el-button @click="handleCorrect(scope.row.assignmentId)" style="margin-right: 0; margin-left: 0;padding-left: 10px; padding-right: 10px" color="#597D3B">
+          <el-button @click="handleCorrect(scope.row.assignmentId, scope.row.studentId)" style="margin-right: 0; margin-left: 0;padding-left: 10px; padding-right: 10px" color="#597D3B">
             <el-icon style="margin-right: 3px"><ZoomIn/></el-icon>
             批改
           </el-button>
@@ -59,7 +59,7 @@
       <el-table-column prop="remark" label="评价"/>
       <el-table-column label="操作">
         <template #default="scope">
-          <el-button @click="handleCorrect(scope.row.assignmentId)" style="margin-right: 0; margin-left: 0;padding-left: 10px; padding-right: 10px" color="#597D3B">
+          <el-button @click="handleCorrect(scope.row.assignmentId, scope.row.studentId)" style="margin-right: 0; margin-left: 0;padding-left: 10px; padding-right: 10px" color="#597D3B">
             <el-icon style="margin-right: 3px"><ZoomIn/></el-icon>
             批改
           </el-button>
@@ -125,9 +125,17 @@ import {useFormatDate} from "@/hooks/useFormatDate";
     });
   }
 
-  const handleCorrect = (assignmentId:number) => {
-    // router.push(`/home/myCorrect/assignment/${assignmentId}`)
-    alert("TODO：跳转到批改页面")
+  const handleCorrect = (assignmentId:number, studentId:number) => {
+    router.push(`/home/myCorrect/assignment/${assignmentId}`)
+    //第二次路由跳转至教师批改界面，并传递了该作业的srudentId
+    router.push({
+      path:
+          `/home/assignment/${assignmentId}/correct`,
+      query: {
+        studentId: studentId
+      }
+    })
+    // alert(studentId)
   }
 
   const handleCurrentChange = (pageNum: number) => {

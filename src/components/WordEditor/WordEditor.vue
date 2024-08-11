@@ -32,7 +32,7 @@
 
   const props = defineProps<IProps>()
 
-  const documentServerUrl = 'http://47.111.23.171:8082/';
+  const documentServerUrl = 'http://139.196.252.184:8082/';
 
   // OnlyOffice编辑器配置
   let config = reactive({
@@ -62,14 +62,16 @@
     },
     editorConfig: {
       lang: 'zh-CN',
-      callbackUrl: 'http://47.111.23.171:8081/api/onlyoffice/callback',
+      //不要用localhost和127.0.0.1访问，用局域网IP访问
+      //TODO:项目部署要改
+      callbackUrl: 'http://192.168.137.1:8080/api/onlyoffice/callback',
       customization: {
         autosave: false,
         comments: false,
         compactHeader: true,
         compactToolbar: false,
         compatibleFeatures: false,
-        forcesave: true,
+        forceSave: true,
         help: false,
         hideRightMenu: true,
         hideRulers: true,
@@ -133,6 +135,7 @@
 
   // 监听 OnlyOffice组件中的文档状态变化事件
   const onDocumentStateChange = (event: any) => {
+    console.log("监听 OnlyOffice组件中的文档状态变化事件", event.data)
     props.onValueChange?.(event.data);
   };
 </script>

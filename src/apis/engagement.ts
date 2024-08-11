@@ -1,5 +1,5 @@
 import axiosInstance from "@/apis/axios.config";
-
+//提交的后端路径
 const ENGAGE_PREFIX = "/api/assignment/engage"
 
 const engagementApis = {
@@ -26,6 +26,7 @@ const engagementApis = {
             }
         })
     },
+    // 提交作业
     engagementSubmit: (studentId: number, assignmentId: number) => {
         return axiosInstance.put(ENGAGE_PREFIX+"/submit", {}, {
             params: {
@@ -34,6 +35,7 @@ const engagementApis = {
             }
         })
     },
+    // 暂存作业
     engagementStage: (studentId: number, assignmentId: number) => {
         return axiosInstance.put(ENGAGE_PREFIX+"/stage", {}, {
             params: {
@@ -42,6 +44,7 @@ const engagementApis = {
             }
         })
     },
+    //提交批改
     engagementCorrect: (studentId: number, assignmentId: number, correctDTO: {score: number, remark: string}) => {
         return axiosInstance.put(`${ENGAGE_PREFIX}/correct`, correctDTO, {
             params: {
